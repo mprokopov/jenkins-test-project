@@ -6,6 +6,7 @@ pipeline {
          steps {
                 script {
                     json = sh(script: "getVersion -source=node -build-id=${BUILD_ID}", returnStdout: true)
+                    echo(json)
                     def version = readJSON text: json
                     echo(version)
                 }
