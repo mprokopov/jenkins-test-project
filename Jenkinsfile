@@ -9,6 +9,8 @@ pipeline {
                     echo(json)
                     def version = readJSON text: json
                     echo(version.AssemblySemVer)
+                    echo(version.SemVer)
+                    echo(version.BranchName)
                 }
          }
       }
