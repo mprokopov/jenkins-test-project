@@ -5,7 +5,7 @@ pipeline {
       stage('Hello') {
          steps {
                 script {
-                    json = sh(script: "getVersion -source=node -build-id=${BUILD_ID}", returnStdout: true)
+                    json = sh(script: "getVersion -source=git-tag -build-id=${BUILD_ID}", returnStdout: true)
                     def version = readJSON text: json
                     echo(version)
                 }
