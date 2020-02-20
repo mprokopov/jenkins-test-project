@@ -20,6 +20,7 @@ spec:
     tty: true
 """
 }
+}
 
    stages {
       stage('Hello') {
