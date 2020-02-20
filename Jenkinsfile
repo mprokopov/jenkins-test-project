@@ -17,6 +17,8 @@ spec:
     tty: true
   - name: version
     image: mprokopov/getversion:latest
+    command:
+    - cut
     tty: true
 """
 }
