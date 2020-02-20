@@ -2,7 +2,7 @@ pipeline {
    // agent { label 'api' }
     agent {
     kubernetes {
-      label 'api'
+      label 'api2'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
