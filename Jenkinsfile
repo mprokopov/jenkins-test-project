@@ -24,16 +24,20 @@ spec:
 
    stages {
       stage('Hello') {
-                container { 'version' }
          steps {
+                container('version') {  
                 script {
                         echo sh(script: "env", returnStdout: true)
-                        json = sh(script: "getversion -source=git-tag -build-id=${BUILD_ID}", returnStdout: true)
+                        json = sh(script: """
+ln -s `pwd` /app && cd /app
+getversion -source=git-tag -build-id=${BUILD_ID}
+""", returnStdout: true)
                         echo(json)
                         def version = readJSON text: json
                         echo(version.AssemblySemVer)
                         echo(version.SemVer)
                         echo(version.BranchName)
+                    }
                 }
          }
       }
